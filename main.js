@@ -155,6 +155,10 @@ function add_point(x, y) {
     points.push([x, y]);
 }
 
+function remove_point(index) {
+    points.splice(index, 1);
+}
+
 draw();
 
 
@@ -221,4 +225,13 @@ document.addEventListener("keypress", (evt) => {
         add_point(0, 0);
         draw();
     }
+    if (evt.key == "x") {
+        const i = get_hover_point(move_x, move_y);
+
+        if (i !== null) {
+            remove_point(i);
+            draw();
+        }
+    }
 });
+
